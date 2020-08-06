@@ -1,5 +1,4 @@
 Category = require('../models/category.model');
-
 response = require('../response');
 
 //GET http://localhost/api/category

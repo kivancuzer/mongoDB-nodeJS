@@ -28,10 +28,13 @@ else {
     console.log("mongoDB'ye başarıyla bağlanıldı");
 }
 app.use("/api",apiRouter);
+
 app.get("/",(req,res)=>{
     res.send("Hello world");
 });
-
+app.get("/api",(req,res)=>{
+    res.send("home world");
+});
 app.listen(port,()=>{
     console.log("node.js server çalışıyor");
 });

@@ -13,6 +13,6 @@ var categorySchema = new schema({
         type:Date,
         default:()=>{return new Date()}
     }
-});
+})
 
-module.exports = mongoose.model("category",categorySchema );
+module.exports = mongoose.model("category",categorySchema);
