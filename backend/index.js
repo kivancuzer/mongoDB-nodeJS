@@ -2,7 +2,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
+let apiRouter= require('./api-router');
 dotenv.config();
 let cors = require('cors');
 let port = process.env.port;
@@ -27,7 +27,7 @@ if(!con) console.log("mongoDB'ye bağlanılamadı");
 else {
     console.log("mongoDB'ye başarıyla bağlanıldı");
 }
-
+app.use("/api",apiRouter);
 app.get("/",(req,res)=>{
     res.send("Hello world");
 });

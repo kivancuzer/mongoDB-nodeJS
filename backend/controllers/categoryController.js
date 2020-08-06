@@ -1,4 +1,4 @@
-Category = require('../category.model');
+Category = require('../models/category.model');
 
 response = require('../response');
 
@@ -17,7 +17,7 @@ exports.getById=(req,res)=>{
     Category.findById(req.params.category_id,(err,category) => {
         
             if(err){
-                return  new response(null,err).notFound(res);   
+                return  new response().notFound(res);   
             }
                 return new response(category,null).success(res);
             
@@ -41,7 +41,7 @@ exports.update = (req,res)=>{
 
     Category.findById(req.params.category_id,(err,category)=>{
         if(err){
-            return new response (null,err).notFound(res);
+            return new response ().notFound(res);
         }
         category.name = req.body.name;
         category.save((err)=>{
@@ -51,5 +51,22 @@ exports.update = (req,res)=>{
                 return new response(category,null).success(res);
         })
     });
+//DELETE http://localhost/api/category/84023804923
+exports.delete = (req,res) => {
+
+    Category.findOneAndDelete({_id : req.params.category_id},(err,category)=>{
+
+        if(err){
+            return new response(null,err).error500(res);
+        }
+        if(!category){
+            return new response().notFound(res);
+        }
+        return new response(category,null).success(err);
+
+
+    });
+
+}
 
 }

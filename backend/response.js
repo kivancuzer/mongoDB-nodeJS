@@ -35,6 +35,4 @@ class response {
         });
     }
 
-}
-
-modelu.exports = response;
+}module.exports = response;
