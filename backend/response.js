@@ -1,7 +1,7 @@
 class response {
-    constructor(data=null,error=null)
+    constructor(data=null,errors=null)
     {
-        this.error = error;
+        this.errors = errors;
         this.data = data;
     }
     success(res){
@@ -19,13 +19,13 @@ class response {
     error500(res){
         res.status(500).json({
             status:"error",
-            error:this.error
+            error:this.errors
         });
     }
     error400(res){
         res.status(400).json({
             status:"error",
-            error:this.error
+            error:this.errors
         });
     }
     notFound(res){

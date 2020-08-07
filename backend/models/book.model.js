@@ -1,31 +1,32 @@
 var mongoose = require('mongoose');
 var category = require('./category.model');
 var bookSchema = mongoose.Schema({        // new schema diyerek de kullanılabilir
-    title:{
-        type:String,
-        require: true,
-    },
-    author:{
-        type:String,
+    title: {
+        type: String,
         require: true
     },
-    price:{
-        type:Number,
+    author: {
+        type: String,
         require: true
     },
-    stock:{
-        type:Number,
+    price: {
+        type: Number,
         require: true
     },
-    created:{
-        type:Date,
-        default:()=>{
-            return new Date();
+    stock: {
+        type: Number,
+        require: true
+    },
+    created: {
+        type: Date,
+        default: () => {
+            return new Date()
         }
     },
-    categoryBy:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"category"
+
+    categoryBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category"
     }
 
 });
