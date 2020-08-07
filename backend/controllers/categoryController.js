@@ -7,7 +7,7 @@ exports.list = (req,res)=> {
         if(err){
             return new response(null,err).error500(res);
         }
-        return new response(categories,null).success(res);
+            new response(categories,null).success(res);
     });
 }
 
@@ -18,7 +18,7 @@ exports.getById=(req,res)=>{
             if(err){
                 return  new response().notFound(res);   
             }
-                return new response(category,null).success(res);
+                new response(category,null).success(res);
             
     });
 }
@@ -28,11 +28,11 @@ exports.create = (req,res)=>{
     var category = new Category();
     category.name= req.body.name;
 
-    category.save((err)=>{
+    category.save((err,category)=>{
         if(err){
             return new response(null,err).error500(res);
         }
-            return new response(category,null).created(res);
+            new response(category,null).success(res);
     });
 }
 //PUT http://localhost/api/category/84023804923
@@ -47,7 +47,7 @@ exports.update = (req,res)=>{
             if(err){
                 return new response(null,err).error500(res);
             }
-                return new response(category,null).success(res);
+                new response(category,null).success(res);
         })
     });
 //DELETE http://localhost/api/category/84023804923
@@ -59,9 +59,9 @@ exports.delete = (req,res) => {
             return new response(null,err).error500(res);
         }
         if(!category){
-            return new response().notFound(res);
+            new response().notFound(res);
         }
-        return new response(category,null).success(err);
+            new response(category,null).success(err);
 
 
     });

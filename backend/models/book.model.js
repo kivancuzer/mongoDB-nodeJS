@@ -10,11 +10,11 @@ var bookSchema = mongoose.Schema({        // new schema diyerek de kullanılabil
         require: true
     },
     price:{
-        type:number,
+        type:Number,
         require: true
     },
     stock:{
-        type:number,
+        type:Number,
         require: true
     },
     created:{
@@ -30,4 +30,4 @@ var bookSchema = mongoose.Schema({        // new schema diyerek de kullanılabil
 
 });
 
-modelu.exports = mongoose.model("book",bookSchema);
+module.exports = mongoose.model("book",bookSchema);
